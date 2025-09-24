@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<div class="single-author-profile">
+    <div class="single-author-box">
+        <div class="single-author-icon">
+            <img src="{{ .Params.icon }}" alt="{{ .Params.name }}'s icon" />
+        </div>
+        <div class="single-author-details">
+            <h1>{{ .Params.name }}</h1> <!-- Author's name -->
+            <div class="single-author-bio">
+                {{ .Content }} <!-- Author's bio/content -->
+            </div>
+        </div>
+    </div>
+    <div class="author-posts">
+        <h1>Posts</h1>
+        {{ $authorName := .Params.name }}
+        {{ range .Site.Pages }}
+            {{ if and (ne .Section "authors") (eq .Params.author $authorName) }}
+                <a href="{{ .RelPermalink }}" class="page-item">
+                    <div class="page-image">
+                        {{ if .Params.image }}
+                            <img src="{{ .Params.image }}" alt="{{ .Title }}">
+                        {{ end }}
+                    </div>
+                    <div class="page-content">
+                        <h2 class="page-title">{{ .Title | truncate 120 }}</h2>
+                        <p class="page-description">{{ .Params.description | truncate 120 }}</p>
+                        <p class="page-date">{{ .Date | time.Format ":date_long" }}</p>
+                    </div>
+                </a>
+            {{ end }}
+        {{ end }}
+    </div>
+</div>
+
+{{ end }}

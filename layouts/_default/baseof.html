@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ $homePage := .Site.GetPage "section" "" }}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/styles.css" type="text/css" media="all" />
+    <link rel="icon" type="image/x-icon" href="{{ $homePage.Params.icon }}">
+    <script src="/js/load_posts.js" defer></script>
+    <script src="/js/search.js" defer></script>
+    <script src="/js/burger.js" defer></script>
+    <script src="/js/swiper.js" defer></script>
+    <script src="/js/swiper-bundle.min.js" defer></script>
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+    <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ $homePage.Title }}</title>
+</head>
+<body>
+    <div id="container">
+        {{ partial "navbar" . }}
+
+        <div id="main-content">
+            <div id="breadcrumb">
+                {{ if not .IsHome }}
+                    <span><a href="/"><img src="/images/icons/home-button.png" alt="Home"></a><span> > </span></span>
+                    {{ range after 1 .Ancestors.Reverse }}
+                        <span><a href="{{ .RelPermalink }}">{{ .LinkTitle | truncate 20 }}</a> <span> > </span></span>
+                    {{ end }}
+                    <span>{{ .Title | default .Params.name | truncate 20 }}</span>
+                {{ end }}
+            </div>
+
+            {{ block "main" . }} {{ end }}
+        </div>
+        
+        <div id="footer">
+            {{ partial "footer" . }}
+        </div>
+    </div>
+</body>
+</html>

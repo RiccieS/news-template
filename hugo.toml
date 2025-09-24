@@ -1,0 +1,11 @@
+defaultContentLanguage = 'en'
+disableKinds = ['taxonomy','term']
+
+[outputs]
+    home = ["HTML", "RSS", "JSON"]
+    
+[module]
+  [[module.mounts]]
+    excludeFiles = 'admin/*'
+    source = 'static'
+    target = 'static'

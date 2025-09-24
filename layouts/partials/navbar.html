@@ -1,0 +1,34 @@
+<nav class="navbar">
+    {{ $homePage := .Site.GetPage "section" "" }}
+    <div class="navbar-row1">
+        <div class="logo">
+            <a href="/" class="logo-link">
+                <img src="{{ $homePage.Params.icon }}" alt="Logo" class="logo-image">
+                <span class="logo-text">{{ $homePage.Params.title }}</span>
+            </a>
+        </div>
+        <div class="future-content">
+            <form action="/search" method="GET">
+                <input type="search" name="q" id="search-query" placeholder="Search....">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    <div class="navbar-row2">
+        <div class="burger-menu" id="burger-menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/unity">Unity</a></li>
+            <li><a href="/injustice">Injustice</a></li>
+            <li><a href="/success">Success</a></li>
+            <li><a href="/culture">Culture</a></li>
+            <li><a href="/economy">Economy</a></li>
+            <li><a href="/security">Security</a></li>
+            <li><a href="/diplomacy">Diplomacy</a></li>
+            <li><a href="/engagement">Engagement</a></li>
+        </ul>
+    </div>
+</nav>

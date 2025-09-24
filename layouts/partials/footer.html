@@ -1,0 +1,30 @@
+<footer>
+    {{ $homePage := .Site.GetPage "section" "" }}
+    <div class="footer-container">
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="/unity">Unity</a></li>
+                <li><a href="/injustice">Injustice</a></li>
+                <li><a href="/success">Success</a></li>
+                <li><a href="/culture">Culture</a></li>
+                <li><a href="/economy">Economy</a></li>
+                <li><a href="/security">Security</a></li>
+                <li><a href="/diplomacy">Diplomacy</a></li>
+                <li><a href="/engagement">Engagement</a></li>
+            </ul>
+        </div>
+        <div class="footer-social">
+            <h3>Follow us</h3>
+            <ul>
+                <li><a href="#"><img src="/images/icons/facebook.png" alt="Facebook"></a></li>
+                <li><a href="#"><img src="/images/icons/twitter.png" alt="Twitter"></a></li>
+                <li><a href="#"><img src="/images/icons/instagram.png" alt="Instagram"></a></li>
+                <li><a href="#"><img src="/images/icons/linkedin.png" alt="Linkedin"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 {{ $homePage.Title }}. All rights reserved.</p>
+    </div>
+</footer>

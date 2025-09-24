@@ -1,0 +1,134 @@
+# when using the default proxy server port
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: master
+media_folder: "/static/images/uploads" # Folder where user uploaded files should go
+public_folder: "/images/uploads"
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/_index.md"
+        label: "Home"
+        name: "home"
+        fields:
+          - { label: "Page name", name: "title", widget: "string" }
+          - { label: "Image", name: "icon", widget: "image", media_folder: "/static/images/", public_folder: "/images/", required: true }
+  - name: "authors"
+    label: "Authors"
+    folder: "content/authors"
+    media_folder: "/static/images/authors"
+    public_folder: "/images/authors"
+    create: true
+    slug: '{{name}}'
+    fields:
+      - { label: "Name", name: "name", widget: string }
+      - { label: "Profile picture", name: "icon", widget: image, default: "/images/authors/default.png", required: true }
+      - { label: "Bio", name: "body", widget: string }
+
+  - name: "economy" # Used in routes, e.g., /admin/collections/post
+    label: "Economy" # Used in the UI
+    folder: "content/economy" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "edit", value: true}
+    fields: # The fields for each document, usually in front matter
+      - { label: "Article title", name: "title", widget: "string" }
+      - { label: "Article description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", options_length: 50, search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Date", name: "date", widget: "datetime", default: "{{now}}", format: "YYYY-MM-DDTHH:mm:ss+01:00" }
+      - { label: "Image source", name: "image", widget: "image", required: true, media_folder: "/static/images/economy", public_folder: "/images/economy" }
+      - { label: "Image caption", name: "alt", widget: "string", required: true }
+      - { label: "Contents", name: "body", widget: "markdown" }
+  - name: "unity" # Used in routes, e.g., /admin/collections/post
+    label: "Unity" # Used in the UI
+    folder: "content/unity" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "edit", value: true}
+    fields: # The fields for each document, usually in front matter
+      - { label: "Article title", name: "title", widget: "string" }
+      - { label: "Article description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", options_length: 50, search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Date", name: "date", widget: "datetime", default: "{{now}}", format: "YYYY-MM-DDTHH:mm:ss+01:00" }
+      - { label: "Image source", name: "image", widget: "image", required: true, media_folder: "/static/images/unity", public_folder: "/images/unity" }
+      - { label: "Image caption", name: "alt", widget: "string", required: true }
+      - { label: "Contents", name: "body", widget: "markdown" }
+  - name: "success" # Used in routes, e.g., /admin/collections/post
+    label: "Success" # Used in the UI
+    folder: "content/success" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "edit", value: true}
+    fields: # The fields for each document, usually in front matter
+      - { label: "Article title", name: "title", widget: "string" }
+      - { label: "Article description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", options_length: 50, search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Date", name: "date", widget: "datetime", default: "{{now}}", format: "YYYY-MM-DDTHH:mm:ss+01:00" }
+      - { label: "Image source", name: "image", widget: "image", required: true, media_folder: "/static/images/success", public_folder: "/images/success" }
+      - { label: "Image caption", name: "alt", widget: "string", required: true }
+      - { label: "Contents", name: "body", widget: "markdown" }
+  - name: "culture" # Used in routes, e.g., /admin/collections/post
+    label: "Culture" # Used in the UI
+    folder: "content/culture" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "edit", value: true}
+    fields: # The fields for each document, usually in front matter
+      - { label: "Article title", name: "title", widget: "string" }
+      - { label: "Article description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", options_length: 50, search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Date", name: "date", widget: "datetime", default: "{{now}}", format: "YYYY-MM-DDTHH:mm:ss+01:00" }
+      - { label: "Image source", name: "image", widget: "image", required: true, media_folder: "/static/images/culture", public_folder: "/images/culture" }
+      - { label: "Image caption", name: "alt", widget: "string", required: true }
+      - { label: "Contents", name: "body", widget: "markdown" }
+  - name: "injustice" # Used in routes, e.g., /admin/collections/post
+    label: "Injustice" # Used in the UI
+    folder: "content/injustice" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "edit", value: true}
+    fields: # The fields for each document, usually in front matter
+      - { label: "Article title", name: "title", widget: "string" }
+      - { label: "Article description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", options_length: 50, search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Date", name: "date", widget: "datetime", default: "{{now}}", format: "YYYY-MM-DDTHH:mm:ss+01:00" }
+      - { label: "Image source", name: "image", widget: "image", required: true, media_folder: "/static/images/injustice", public_folder: "/images/injustice" }
+      - { label: "Image caption", name: "alt", widget: "string", required: true }
+      - { label: "Contents", name: "body", widget: "markdown" }
+  - name: "diplomacy" # Used in routes, e.g., /admin/collections/post
+    label: "Diplomacy" # Used in the UI
+    folder: "content/diplomacy" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "edit", value: true}
+    fields: # The fields for each document, usually in front matter
+      - { label: "Article title", name: "title", widget: "string" }
+      - { label: "Article description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", options_length: 50, search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Date", name: "date", widget: "datetime", default: "{{now}}", format: "YYYY-MM-DDTHH:mm:ss+01:00" }
+      - { label: "Image source", name: "image", widget: "image", required: true, media_folder: "/static/images/diplomacy", public_folder: "/images/diplomacy" }
+      - { label: "Image caption", name: "alt", widget: "string", required: true }
+      - { label: "Contents", name: "body", widget: "markdown" }
+  - name: "security" # Used in routes, e.g., /admin/collections/post
+    label: "Security" # Used in the UI
+    folder: "content/security" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "edit", value: true}
+    fields: # The fields for each document, usually in front matter
+      - { label: "Article title", name: "title", widget: "string" }
+      - { label: "Article description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", options_length: 50, search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Date", name: "date", widget: "datetime", default: "{{now}}", format: "YYYY-MM-DDTHH:mm:ss+01:00" }
+      - { label: "Image source", name: "image", widget: "image", required: true, media_folder: "/static/images/security", public_folder: "/images/security" }
+      - { label: "Image caption", name: "alt", widget: "string", required: true }
+      - { label: "Contents", name: "body", widget: "markdown" }
+  - name: "engagement" # Used in routes, e.g., /admin/collections/post
+    label: "Engagement" # Used in the UI
+    folder: "content/engagement" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    filter: {field: "edit", value: true}
+    fields: # The fields for each document, usually in front matter
+      - { label: "Article title", name: "title", widget: "string" }
+      - { label: "Article description", name: "description", widget: "string" }
+      - { label: "Author", name: "author", widget: "relation", collection: "authors", options_length: 50, search_fields: ["name"], value_field: "name", display_fields: ["name"] }
+      - { label: "Date", name: "date", widget: "datetime", default: "{{now}}", format: "YYYY-MM-DDTHH:mm:ss+01:00" }
+      - { label: "Image source", name: "image", widget: "image", required: true, media_folder: "/static/images/engagement", public_folder: "/images/engagement" }
+      - { label: "Image caption", name: "alt", widget: "string", required: true }
+      - { label: "Contents", name: "body", widget: "markdown" }

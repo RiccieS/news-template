@@ -1,0 +1,728 @@
+html, body {
+    height: 100%; /* Full height for the html and body */
+    margin: 0; /* Remove default margin */
+    font-family: Arial, Helvetica, sans-serif; /* Fallback to sans-serif */
+}
+
+body{
+    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    background: linear-gradient(to bottom right,  
+    rgba(255, 76, 76, 0.6) 10%,  
+    rgba(255, 76, 76, 0.2) 18%,  
+    white 30%,  
+    white 70%,  
+    rgba(255, 76, 76, 0.2) 82%,  
+    rgba(255, 76, 76, 0.6) 90%  
+    );
+    background-attachment: fixed; /* Keep the background fixed while scrolling */
+    background-size: cover; /* Ensure the background covers the entire area */
+}
+
+#container{
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh; /* Full height of the viewport */
+}
+
+#main-content {
+    box-sizing: border-box; /* Include padding in the element's total width */
+    flex: 1;
+    max-width: 1500px;
+    width: 100%;
+    margin: auto;
+    padding: 0 50px;
+}
+
+/*START OF NAVBAR*/
+.navbar {
+    width: 100%;
+}
+
+.navbar-row1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background: linear-gradient(to right, lightcoral, rgb(178, 34, 34));
+    color: white;
+}
+
+.logo-link {
+    display: flex; /* Use flexbox to align items */
+    align-items: center; /* Center items vertically */
+    text-decoration: none; /* Remove underline from link */
+    color: white; /* Set text color to white */
+}
+
+.logo-image {
+    height: 100px; /* Set the height of the logo */
+    width: auto; /* Maintain aspect ratio */
+}
+
+.logo-text {
+    margin-left: 10px; /* Add some space between the image and the text */
+    font-size: 24px; /* Adjust font size as needed */
+    font-weight: bold;
+}
+
+/*START OF SEARCH BAR*/
+.future-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+form {
+    display: flex;
+    border: 2px solid #8B0000; /* Green border */
+    border-radius: 5px;
+    overflow: hidden; /* Ensures the border radius is applied to the input and button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow */
+}
+
+input[type="search"] {
+    border: none; /* Remove default border */
+    padding: 10px; /* Add some padding */
+    font-size: 16px; /* Increase font size */
+    outline: none; /* Remove outline on focus */
+    flex: 1; /* Allow input to take available space */
+}
+
+input[type="search"]::placeholder {
+    color: #888; /* Placeholder color */
+}
+
+button {
+    background-color: #B22222; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    padding: 10px 15px; /* Add padding */
+    cursor: pointer; /* Change cursor on hover */
+    font-size: 16px; /* Increase font size */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+button:hover {
+    background-color: #b30000;
+}
+/*END OF SEARCH BAR*/
+
+.navbar-row2 {
+    background-color: rgb(175, 11, 11);
+    position: relative; /* Position relative for absolute positioning of the menu */
+}
+
+.burger-menu {
+    display: none; /* Hide by default */
+    flex-direction: column;
+    cursor: pointer;
+    margin: 0 10px; /* Set margin-top to 0 and keep the side margins */
+    padding: 10px 0;
+    align-items: flex-end; /* Align the lines to the right */
+}
+
+.line {
+    height: 3px;
+    width: 30px;
+    background-color: rgb(117, 39, 39);
+    margin: 4px 0; /* Space between lines */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+    max-width: 1500px;
+    min-height: 50px;
+}
+
+.nav-links li {
+    flex: 1; /* This makes all <li> elements take equal space */
+    margin: 0 15px; /* You may want to adjust this if it affects spacing */
+    font-size: 20px;
+    padding: 10px 0; /* Adjust padding to only affect vertical space */
+    text-align: center; /* Center the text within each <li> */
+    display: flex; /* Use flexbox for vertical centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav-links li:hover {
+    border-bottom: 3px solid white;
+    font-weight: bold;
+}
+/*END OF NAVBAR*/
+
+/*START OF BREADCRUMB*/
+#breadcrumb {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center the items horizontally */
+    align-items: center; /* Center the items vertically */
+    margin: 10px 0;
+    font-size: 20px;
+}
+
+#breadcrumb a {
+    text-decoration: none;
+    color: #ff3d00;
+}
+
+#breadcrumb span {
+    margin: 0 5px;
+}
+/*END OF BREADCRUMB*/
+
+/*START OF FOOTER*/
+footer {
+    background-color: rgb(175, 11, 11); /* Transformed to a semi-transparent red */
+    color: white; /* Transformed to a darker red */
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links, .footer-social {
+    flex: 1;
+}
+
+.footer-links h3, .footer-social h3 {
+    margin-bottom: 10px;
+}
+
+.footer-links ul, .footer-social ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li, .footer-social li {
+    margin: 5px 0;
+}
+
+.footer-links a, .footer-social a {
+    color: white; /* Transformed to a similar red color */
+    text-decoration: none;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+    text-decoration: underline;
+}
+
+.footer-social ul {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-social i {
+    font-size: 30px; /* Change this value to increase or decrease size */
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid white;
+    padding-top: 10px;
+}
+/*END OF FOOTER*/
+
+/*START OF LIST PAGE*/
+.page-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align items horizontally */
+    margin-top: 40px;
+}
+
+.page-list.home {
+    margin-top: 0;
+}
+
+.page-list h1{
+    font-size: 50px;
+    text-align: center;
+}
+
+.page-item{
+    display: none;
+    margin-bottom: 20px;
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color from parent */
+    justify-content: center; /* Center align content within each item */
+    width: 100%; /* Ensure items take full width for centering */
+    max-width: 1000px; /* Optional: Set a max width for the items */
+    font-size: 1.2em;
+    border: 2px solid white;
+    background-color: rgba(255, 255, 255, 0.808);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    padding: 10px;
+}
+
+.page-authors-container{
+    display: flex;
+    flex-direction: column; /* or row, depending on your layout */
+    align-items: center; /* centers items horizontally */
+    justify-content: center; /* centers items vertically if needed */
+}
+
+.styled-hr {
+    border: none; /* Remove default border */
+    height: 2px; /* Increase height for a wider line */
+    background-color: rgba(128, 128, 128, 0.3); /* Set a gray color with reduced opacity */
+    margin: 20px 0; /* Add some space above and below the line */
+  }
+
+/* START OF AUTHOR SINGLE */
+.single-author-profile {
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    align-items: center; /* Center items horizontally */
+    box-sizing: border-box;
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    margin: 20px 0; /* More flexible padding */
+    background-color: rgba(255, 255, 255, 0.808);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.author-posts {
+    width: 90%; /* Make sure it takes full width */
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Stack posts vertically */
+    align-items: center; /* Center posts horizontally */
+    box-sizing: border-box;
+}
+
+.author-posts h1{
+    font-size: 3em;
+}
+
+.single-author-box {
+    display: flex;
+    flex-direction: row; /* Ensure the flex direction is row by default */
+    width: 90%; /* Ensure the box takes full width of the profile */
+    height: auto;
+    margin: 0 auto; /* Center the box horizontally */
+    box-sizing: border-box; /* Ensure padding/borders don't affect the width */
+    font-size: 1.2em;
+}
+
+.single-author-icon {
+    display: flex;
+    width: 30%;
+    height: auto;
+    margin-right: 15px; /* Space between icon and text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.single-author-icon img {
+    border-radius: 50%; /* Make the icon circular */
+    width: 100%; /* Set width to 100% to fill the container */
+    max-width: 312px;
+    height: auto; /* Set height to 100% to fill the container */
+    object-fit: cover; /* Ensure the image covers the entire area */
+}
+
+.single-author-details {
+    flex: 1; /* Allow the details to take the remaining space */
+}
+
+.single-author-bio {
+    margin-top: 5px; /* Space between name and bio */
+}
+
+/* Media query for screens 1500px or smaller */
+@media (max-width: 1500px) {
+    .single-author-box {
+        flex-direction: column; /* Change flex direction to column */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .single-author-icon {
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 15px; /* Add space below the icon */
+    }
+
+    .single-author-icon {
+        width: 60%;
+    }
+}
+
+@media (max-width: 800px) {
+    .single-author-profile{
+        padding: 40px 0;
+    }
+}
+/* END OF AUTHOR SINGLE */
+
+/* START OF SWIPER */
+.page-item-home {
+    display: flex;
+    flex-direction: column; /* Change to column layout */
+    align-items: center; /* Center align items horizontally */
+    border: 1px solid #ccc; /* Change the color and style as needed */
+    padding: 10px; /* Optional: Add some padding inside the border */
+    margin: 10px 0; /* Optional: Add some margin between items */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color from parent */
+    justify-content: space-between; /* Distribute space evenly */
+    font-size: 1.2em;
+    background-color: rgba(255, 255, 255, 0.808);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    min-height: 550px; /* Set a minimum height for consistency */
+  }
+  
+  .swiper-container {
+    width: 100%;
+    height: 650px;
+    position: relative;
+    overflow: hidden; /* Hide extra slides */
+  }
+
+  .swiper-wrapper {
+    display: flex;
+  }
+  
+  .swiper-slide {
+    display: flex; /* Use flexbox for each slide */
+    flex-direction: column; /* Stack content vertically */
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: center; /* Center align items horizontally */
+    height: 550px; /* Set a fixed height for all slides */
+  }
+/* END OF SWIPER */
+
+.page-item-home:hover .page-title,
+.page-item:hover .page-title{
+    text-decoration: underline;
+}
+
+.page-image {
+    flex: 0 0 200px; /* Fixed width for the image */
+    margin-right: 20px;
+}
+
+.page-image.latest{
+    margin-right: 0;
+}
+
+.page-image img {
+    width: 100%; /* Responsive image */
+    height: auto;
+}
+
+.page-content {
+    flex: 1; /* Take the remaining space */
+}
+
+.page-title {
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.page-description {
+    margin: 5px 0;
+}
+
+.page-date {
+    color: gray; /* Style for the date */
+    font-size: 0.9em;
+}
+
+.button-container {
+    display: flex; /* Use flexbox to center the button */
+    justify-content: center; /* Center the button horizontally */
+    margin: 20px auto; /* Space above the button */
+}
+
+#load-more {
+    background-color: #B22222; /* Green background */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    display: none;
+    padding: 10px 20px; /* Padding for the button */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth background color transition */
+}
+
+#load-more:hover {
+    background-color: #8b0000;/* Darker shade on hover */
+}
+
+#load-more:focus {
+    outline: none; /* Remove outline on focus */
+}
+/*END OF LIST PAGE*/
+
+/*START OF SINGLE PAGE*/
+.post{
+    font-size: 1.2em;
+    width: 60%;
+    margin: 0 auto; /* This centers the element */
+}
+
+.post-title {
+    font-size: 2em; /* Adjust as needed */
+    margin-bottom: 0.5em; /* Space below the title */
+}
+
+.post-date {
+    font-size: small;
+    color: grey;
+    margin-bottom: 1em; /* Space below the date */
+    font-size: 1em;
+}
+
+.post-author {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    font-size: small;
+    color: grey;
+    margin-bottom: 1em; /* Space below the date */
+    font-size: 1em;
+}
+
+.author-icon {
+    vertical-align: middle;
+    margin-right: 5px;
+    width: 40px;
+    height: auto;
+}
+
+.post-image img {
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.post-image .image-alt {
+    margin-top: 0;
+    color: #888; /* Grey color for weak text */
+    font-size: 0.9em; /* Slightly smaller font size */
+    margin-bottom: 1em; /* Space below the image */
+}
+
+.post-description {
+    font-weight: bold;
+    margin-bottom: 1em; /* Space below the description */
+}
+
+.post-content{
+    margin-bottom: 5em;
+}
+/*END OF SINGLE PAGE*/
+
+/*START OF HOME PAGE*/
+.image-container {
+    position: relative;
+    width: 60%;
+    overflow: hidden;
+    margin: 0 auto; /* Center horizontally */
+    margin-bottom: 1em;
+}
+
+.image-container a{
+    text-decoration: none;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: filter 0.5s ease-in-out; /* Increased duration and smoother timing function */
+}
+
+.image-title {
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    width: 60%;
+    background-color: #e25d56; /* Less intense semi-transparent red background */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    padding: 10px; /* Add some padding */
+    border-radius: 5px; /* Optional: rounded corners */
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out; /* Increased duration for both properties */
+}
+
+/* Hover effects */
+.image-container:hover img {
+    filter: brightness(0.5); /* Darken the image */
+}
+
+.image-container:hover .image-title {
+    background-color: #db3529; /* Lighten the box color to a more opaque but still less intense red */
+    color: white; /* Change text color for better contrast */
+}
+/*END OF HOME PAGE*/
+
+/*START OF LOADING BUTTON*/
+[id^="summary-"] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.loading-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center;    /* Center vertically */
+}
+
+.search-loading {
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #e74c3c;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite; /* Safari */
+    animation: spin 2s linear infinite;
+  }
+  
+  /* Safari */
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+/*END OF LOADING BUTTON*/
+
+@media (max-width: 1250px) {
+    .image-container{
+        border-radius: 15px;
+        width: 80%;
+    }
+
+    .image-title {
+        position: static; /* Change position to static */
+        top: auto; /* Reset top */
+        left: auto; /* Reset left */
+        width: 100%; /* Make it full width */
+        background-color: rgba(253, 88, 88, 0.7); /* Keep the same background color */
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .navbar-row1 {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .future-content {
+        margin-top: 10px; /* Add some space between logo and search bar */
+        width: 100%; /* Make search bar take full width */
+    }
+
+    #search-query {
+        width: 100%; /* Make the search input take full width */
+        padding: 10px; /* Add some padding for better appearance */
+        font-size: 16px; /* Adjust font size as needed */
+    }
+
+    button {
+        padding: 10px; /* Add padding to the button */
+        font-size: 16px; /* Adjust font size as needed */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Add vertical spacing between items */
+        border-bottom: 3px solid transparent; /* Use a transparent border by default */
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        display: none; /* Hide links by default */
+        width: 100%; /* Full width for the menu */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+    }
+
+    .burger-menu {
+        display: flex; /* Show burger menu */
+    }
+
+    .footer-container {
+        flex-direction: column; /* Change the flex direction to column */
+        align-items: center; /* Center items horizontally */
+        text-align: center; /* Center text within the items */
+    }
+
+    .footer-links, .footer-social {
+        margin-bottom: 20px; /* Add some space between the two sections */
+        width: 100%; /* Make sections take full width */
+    }
+
+    .footer-links ul, .footer-social ul {
+        justify-content: center; /* Center the list items */
+    }
+
+    .page-item, 
+    .page-item-home{
+        display: flex;
+        flex-direction: column; /* Change to column layout */
+        align-items: center; /* Center align items horizontally */
+        border: 1px solid #ccc; /* Change the color and style as needed */
+        padding: 10px; /* Optional: Add some padding inside the border */
+        margin: 10px 0; /* Optional: Add some margin between items */
+        border-radius: 5px; /* Optional: Add rounded corners */
+    }
+
+    .page-item{
+        display: none;
+    }
+
+    .page-image {
+        margin-right: 0; /* Remove right margin for column layout */
+        margin-bottom: 5px; /* Add bottom margin for spacing */
+    }
+
+    .post{
+        width: 90%;
+    }
+
+    #breadcrumb {
+        flex-direction: column; /* Change to column layout */
+        align-items: center; /* Center items in the column */
+        text-align: center; /* Center text within the breadcrumb */
+    }
+
+    #breadcrumb span {
+        margin: 5px 0; /* Adjust margin for vertical spacing */
+    }
+
+    .image-container{
+        width: 100%;
+    }
+}

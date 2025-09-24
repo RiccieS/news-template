@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<main>
+    <div id="search-results"></div>
+    <div class="loading-container">
+    <div class="search-loading"></div>
+</div>
+
+    <script id="search-result-template" type="text/x-js-template">
+    <div id="summary-${key}">
+        <a href="${link}" class="page-item" style="display: flex;">
+            <div class="page-image">
+                <img src="${image}" alt="Description of the image">
+            </div>
+            <div class="page-content">
+                <h2 class="page-title">${title}</h2>
+                <p class="page-description">${snippet}</p>
+                <p class="page-date">${date}</p>
+            </div>
+        </a>
+    </div>
+    </script>
+
+    <script src="/js/fuse.min.js"></script>
+    
+    <script src="/js/mark.min.js"></script>
+</main>
+
+{{ end }}

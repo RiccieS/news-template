@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+<div class="page-list">
+    {{ range .Pages }}
+    <a href="{{ .RelPermalink }}" class="page-item">
+        <div class="page-image">
+            {{ if .Params.image }}
+                <img src="{{ .Params.image }}" alt="{{ .Title }}">
+            {{ end }}
+        </div>
+        <div class="page-content">
+            <h2 class="page-title">{{ .Title | truncate 120 }}</h2>
+            <p class="page-description">{{ .Params.description | truncate 120 }}</p>
+            <p class="page-date">{{ .Date | time.Format ":date_long" }}</p>
+        </div>
+    </a>
+    {{ end }}
+</div>
+
+<div class="button-container">
+    <button id="load-more">Load more</button>
+</div>
+
+{{ end }}
